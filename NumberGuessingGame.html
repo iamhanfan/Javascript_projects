@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bungee&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
+    <title>Number Guessing Name</title>
+
+    <style>
+        body{
+            width: 95%;
+            height: 67.5vh;
+            text-align: center;
+            margin-top: 200px;
+            background: linear-gradient(to bottom right ,rgb(82, 183, 255),#b3f5ff);
+            background-repeat: no-repeat;
+            margin-left: 40px;
+        }
+
+        #title{
+            font-family: 'Bungee';
+            font-size: 30px;
+        }
+
+        #guessBox{
+            font-family: 'Arial';
+            font-weight: bold;
+            padding: 8px 100px;
+            font-size: 20px;
+            text-align: center;
+            border-radius: 20px;
+            border: 1px solid;
+            margin-top: 20px;
+        }
+
+        #guessBox:hover{
+            border: 3px solid black;
+        }
+
+        #checkBtn{
+            padding: 10px 20px;
+            font-size: 16px;
+            font-weight: bold;
+            border-radius: 10px;
+            border: 1px solid;
+            background: linear-gradient(to bottom right,rgb(255, 255, 255),rgb(162, 162, 162));
+        }
+
+        #result{
+            display: block;
+            margin-top: 20px;
+            font-family: 'Cabin';
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        @media only screen and (max-width:675px){
+
+            body{
+                margin-left:10px;
+            }
+        
+            #title{
+                font-size: 22px;
+            }
+
+            #guessBox{
+                padding: 8px 40px;
+            }
+
+            #checkBtn{
+                margin-top: 20px;
+            }
+
+            #result{
+                margin-top: 40px;
+                font-size: 20px;
+            }
+
+
+            
+        }
+    </style>
+</head>
+<body>
+
+    <label for="guessBox" id="title">Guess a number between 1-100</label><br>
+    <input type="text" id="guessBox"><br><br>
+    <button id="checkBtn">Check</button>
+
+    <label id="result"></label>
+
+    <script>
+        
+        const guessBox=document.getElementById("guessBox");
+        const checkBtn=document.getElementById("checkBtn");
+        const result=document.getElementById("result");
+
+        let minNum=1;
+        let maxNum=100;
+        let answer=Math.floor(Math.random()*(maxNum-minNum+1)+minNum);
+
+
+        let attempt=0;
+        let running=true;
+        
+        checkBtn.onclick = function () {
+            while (running) {
+                guess=guessBox.value;
+                guess=Number(guess);
+                
+                
+                if (isNaN(guess) || guess < minNum || guess > maxNum) {
+                    result.textContent = "Enter a valid number between 1 and 100.";
+                } else {
+                    attempt++;
+
+                    if (guess < answer) {
+                        result.textContent = "Too Low !! Try Again!";
+                    } else if (guess > answer) {
+                        result.textContent = "Too High !! Try Again!";
+                    } else {
+                        result.textContent = `You Won!! The answer was ${answer}. It Took ${attempt} attempts`;
+                        running = false;
+                        
+                    }
+                }
+                break;
+            }
+            guess.value="";
+        }
+    </script>
+</body>
+
+
+</html>
