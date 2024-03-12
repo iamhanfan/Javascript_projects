@@ -1,0 +1,73 @@
+body{
+    width: 95%;
+    height: 67.5vh;
+    text-align: center;
+    margin-top: 200px;
+    background: linear-gradient(to bottom right ,rgb(82, 183, 255),#b3f5ff);
+    background-repeat: no-repeat;
+    margin-left: 40px;
+}
+
+#title{
+    font-family: 'Bungee';
+    font-size: 30px;
+}
+
+#guessBox{
+    font-family: 'Arial';
+    font-weight: bold;
+    padding: 8px 100px;
+    font-size: 20px;
+    text-align: center;
+    border-radius: 20px;
+    border: 1px solid;
+    margin-top: 20px;
+}
+
+#guessBox:hover{
+    border: 3px solid black;
+}
+
+#checkBtn{
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 10px;
+    border: 1px solid;
+    background: linear-gradient(to bottom right,rgb(255, 255, 255),rgb(162, 162, 162));
+}
+
+#result{
+    display: block;
+    margin-top: 20px;
+    font-family: 'Cabin';
+    font-size: 24px;
+    font-weight: bold;
+}
+
+@media only screen and (max-width:675px){
+
+    body{
+        margin-left:10px;
+    }
+
+    #title{
+        font-size: 22px;
+    }
+
+    #guessBox{
+        padding: 8px 40px;
+    }
+
+    #checkBtn{
+        margin-top: 20px;
+    }
+
+    #result{
+        margin-top: 40px;
+        font-size: 20px;
+    }
+
+
+    
+}
